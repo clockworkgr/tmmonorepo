@@ -1,0 +1,26 @@
+{
+  "name": "@starport/vuex",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Alex Megalokonomos <alex@clockwork.gr>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/vuex.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@starport/client-js": "^1.0.0",
+    "axios": "^0.21.1"
+  }
+}
