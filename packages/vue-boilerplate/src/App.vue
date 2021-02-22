@@ -46,6 +46,10 @@ export default {
 	async created() {
 		await this.$store.dispatch('chain/common/env/init')
 		this.initialized = true
+	},
+	errorCaptured(err) {
+		console.log(err)
+		return false
 	}
 }
 </script>

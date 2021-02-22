@@ -1,5 +1,5 @@
 {
-  "name": "@starport/vue-boilerplate",
+  "name": "@clockwork-projects/vue-boilerplate",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Alex Megalokonomos <alex@clockwork.gr>",
@@ -16,12 +16,12 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@clockwork-projects/client-js": "^1.0.0",
+    "@clockwork-projects/vue-components": "^1.0.11",
     "@cosmjs/crypto": "^0.23.2",
     "@cosmjs/encoding": "^0.23.2",
     "@cosmjs/proto-signing": "^0.24.0-alpha.25",
     "@cosmjs/stargate": "^0.24.0-alpha.25",
-    "@starport/client-js": "^1.0.0",
-    "@starport/vue": "^1.0.0",
     "bip39": "^3.0.3",
     "bs58": "^4.0.1",
     "core-js": "^3.8.3",

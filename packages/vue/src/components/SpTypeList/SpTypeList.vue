@@ -1,5 +1,5 @@
 <template>
-	<div class="SpTypeList">
+	<div class="SpTypeList" v-if="depsLoaded">
 		<p>
 			<strong>
 				LIST OF TYPE: '<em>{{ type }}</em
@@ -56,19 +56,39 @@ export default {
 	},
 	computed: {
 		typeItems() {
-			return this.$store.getters[
-				'chain/' + this.module + '/get' + this.type + 'All'
-			]()
+			if (this._depsLoaded) {
+				return this.$store.getters[
+					'chain/' + this.module + '/get' + this.type + 'All'
+				]()
+			} else {
+				return []
+			}
+		},
+		depsLoaded() {
+			return this._depsLoaded
+		}
+	},
+	beforeCreate() {
+		const module = ['chain', ...this.module.split('/')]
+		for (let i = 1; i <= module.length; i++) {
+			let submod = module.slice(0, i)
+			if (!this.$store.hasModule(submod)) {
+				console.log('Module ' + this.module + ' has not been registered!')
+				this._depsLoaded = false
+				break
+			}
 		}
 	},
 	async created() {
-		this.fieldList = this.$store.getters[
-			'chain/' + this.module + '/getTypeStructure'
-		](this.type)
-		await this.$store.dispatch(
-			'chain/' + this.module + '/Query' + this.type + 'All',
-			{ subscribe: true }
-		)
+		if (this._depsLoaded) {
+			this.fieldList = this.$store.getters[
+				'chain/' + this.module + '/getTypeStructure'
+			](this.type)
+			await this.$store.dispatch(
+				'chain/' + this.module + '/Query' + this.type + 'All',
+				{ subscribe: true }
+			)
+		}
 	}
 }
 </script>

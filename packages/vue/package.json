@@ -1,6 +1,6 @@
 {
-  "name": "@starport/vue",
-  "version": "1.0.0",
+  "name": "@clockwork-projects/vue-components",
+  "version": "1.0.11",
   "description": "> TODO: description",
   "author": "Alex Megalokonomos <alex@clockwork.gr>",
   "homepage": "",
@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "@cosmjs/encoding": "^0.23.2",
-    "@starport/vuex": "^1.0.0",
+    "@clockwork-projects/vuex": "^1.0.0",
     "axios": "^0.21.1",
     "bip39": "^3.0.3",
     "moment": "^2.29.1",

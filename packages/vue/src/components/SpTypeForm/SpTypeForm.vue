@@ -169,6 +169,14 @@ export default {
 			return { id, creator }
 		}
 	},
+	beforeCreate() {
+		const module = ['chain', ...this.module.split('/')]
+		if (!this.$store.hasModule(module)) {
+			console.log('Module ' + this.module + ' has not been registered!')
+			this.$destroy();
+			throw 'Module ' + this.module + ' has not been registered!'
+		}
+	},
 	async created() {
 		this.fieldList = this.$store.getters[
 			'chain/' + this.module + '/getTypeStructure'
