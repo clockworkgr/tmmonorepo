@@ -1,4 +1,4 @@
-import Client from '@clockwork-projects/client-js'
+import Client from '@starport/client-js'
 
 export default {
 	namespaced: true,
