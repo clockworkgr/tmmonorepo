@@ -1,10 +1,16 @@
 {
-  "name": "@clockwork-projects/vuex-modules",
-  "version": "1.0.0",
-  "description": "> TODO: description",
-  "author": "Alex Megalokonomos <alex@clockwork.gr>",
-  "homepage": "",
-  "license": "ISC",
+  "name": "@starport/vuex",
+  "version": "0.2.0",
+  "description": "A library of Vuex 4 (for Vue 3) standard store modules for state management of cosmos-sdk chains' frontends",
+  "author": "Tendermint, Inc <hello@tendermint.com>",
+  "homepage": "https://github.com/tendermint/vue",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "main": "lib/vuex.js",
   "directories": {
     "lib": "lib",
@@ -20,7 +26,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@clockwork-projects/client-js": "^1.0.0",
+    "@starport/client-js": "^1.0.0",
     "axios": "^0.21.1"
   }
 }

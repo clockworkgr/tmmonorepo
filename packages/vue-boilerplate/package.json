@@ -1,10 +1,16 @@
 {
-  "name": "@clockwork-projects/vue-boilerplate",
-  "version": "1.0.0",
-  "description": "> TODO: description",
-  "author": "Alex Megalokonomos <alex@clockwork.gr>",
-  "homepage": "",
-  "license": "ISC",
+  "name": "@starport/vue-boilerplate",
+  "version": "0.2.0",
+  "description": "A Vue 3 boilerplate project utilizing @starport/vue and @starport/vuex",
+  "author": "Tendermint, Inc <hello@tendermint.com>",
+  "homepage": "https://github.com/tendermint/vue",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "main": "src/index.js",
   "publishConfig": {
     "access": "public"
@@ -16,8 +22,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@clockwork-projects/client-js": "^1.0.0",
-    "@clockwork-projects/vue-components": "^1.0.11",
+    "@starport/client-js": "^0.2.0",
+    "@starport/vue": "^0.2.0",
     "@cosmjs/crypto": "^0.23.2",
     "@cosmjs/encoding": "^0.23.2",
     "@cosmjs/proto-signing": "^0.24.0-alpha.25",
