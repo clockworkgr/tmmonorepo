@@ -1,6 +1,11 @@
 import { EventEmitter } from "events";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import axios, { AxiosPromise, AxiosResponse } from "axios";
+import {
+	assertIsBroadcastTxSuccess,
+	SigningStargateClient
+} from "@cosmjs/stargate";
+import {OfflineDirectSigner} from "@cosmjs/proto-signing"
 
 export interface IClientConfig {
   apiAddr: string;
@@ -23,6 +28,7 @@ export default class SPClient extends EventEmitter {
   private socket: ReconnectingWebSocket;
   private connectRes;
   private connectRej;
+  public signingClient;
   private timer: ReturnType<typeof setInterval>;
 
   constructor({ apiAddr, rpcAddr, wsAddr }: IClientConfig) {
@@ -49,6 +55,9 @@ export default class SPClient extends EventEmitter {
       this.socket.onerror = this.onErrorWS.bind(this);
       this.socket.onclose = this.onCloseWS.bind(this);
     }
+  }
+  public async useSigner(signer:OfflineDirectSigner):Promise<void> {
+      this.signingClient = await SigningStargateClient.connectWithSigner(this.rpcAddr, signer);
   }
   private async connectivityTest(): Promise<void> {
     if (this.apiAddr) {
@@ -103,7 +112,7 @@ export default class SPClient extends EventEmitter {
       this.emit("newblock", JSON.parse(msg.data).result);
     }
   }
-  public async query(url: string, params: string = ""): Promise<any> {
+  public async query(url: string, params = ""): Promise<any> {
     try {
       const response: any = await axios.get(this.apiAddr + url + params);
       return response.data;
